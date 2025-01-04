@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .calculator {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 320px;
+        }
+        .display {
+            width: 100%;
+            height: 50px;
+            background-color: #222;
+            color: white;
+            font-size: 2em;
+            text-align: right;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        .button {
+            padding: 20px;
+            font-size: 1.5em;
+            background-color: #f0f0f0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #ddd;
+        }
+        .button:active {
+            background-color: #ccc;
+        }
+        .button.operator {
+            background-color: #ff9800;
+            color: white;
+        }
+        .button.operator:hover {
+            background-color: #ff7043;
+        }
+        .button.equal {
+            background-color: #4caf50;
+            color: white;
+        }
+        .button.equal:hover {
+            background-color: #388e3c;
+        }
+        .button.clear {
+            background-color: #f44336;
+            color: white;
+        }
+        .button.clear:hover {
+            background-color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+
+<div class="calculator">
+    <form action="/button_click" method="POST">
+        <input type="hidden" name="current_value" value="{{ current_value }}">
+        <div class="display">{{ current_value if current_value else '0' }}</div>
+        <div class="buttons">
+            <button class="button clear" type="submit" name="clicked_value" value="C">C</button>
+            <button class="button operator" type="submit" name="clicked_value" value="/">/</button>
+            <button class="button operator" type="submit" name="clicked_value" value="*">*</button>
+            <button class="button operator" type="submit" name="clicked_value" value="-">-</button>
+
+            <button class="button" type="submit" name="clicked_value" value="7">7</button>
+            <button class="button" type="submit" name="clicked_value" value="8">8</button>
+            <button class="button" type="submit" name="clicked_value" value="9">9</button>
+            <button class="button operator" type="submit" name="clicked_value" value="+">+</button>
+
+            <button class="button" type="submit" name="clicked_value" value="4">4</button>
+            <button class="button" type="submit" name="clicked_value" value="5">5</button>
+            <button class="button" type="submit" name="clicked_value" value="6">6</button>
+            <button class="button equal" type="submit" name="clicked_value" value="=">=</button>
+
+            <button class="button" type="submit" name="clicked_value" value="1">1</button>
+            <button class="button" type="submit" name="clicked_value" value="2">2</button>
+            <button class="button" type="submit" name="clicked_value" value="3">3</button>
+            <button class="button" type="submit" name="clicked_value" value="0">0</button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
